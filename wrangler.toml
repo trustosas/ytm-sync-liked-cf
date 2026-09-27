@@ -1,4 +1,4 @@
-name = "ytm-liked-sync"
+name = 'ytm-sync-liked-cf'
 main = "src/index.ts"
 compatibility_date = "2024-09-23"
 
