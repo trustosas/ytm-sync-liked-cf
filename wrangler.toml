@@ -1,0 +1,17 @@
+name = "ytm-liked-sync"
+main = "src/index.ts"
+compatibility_date = "2024-09-23"
+
+# Runs every 30 minutes, matching the original GitHub Actions cron.
+# Cloudflare cron syntax has no seconds field and is otherwise standard cron.
+[triggers]
+crons = ["*/30 * * * *"]
+
+[vars]
+# The playlist that gets purged and refilled from Liked Music.
+# Not secret, so it lives here rather than as a `wrangler secret`.
+TARGET_PLAYLIST_ID = "PLwL1RrduuW2g6XKBN5JSugD96tItkPJW4"
+
+# Secrets (do NOT put these here -- set them with `wrangler secret put`):
+#   YT_COOKIE   -- full Cookie header from a logged-in music.youtube.com request
+#   RUN_TOKEN   -- optional, required as ?token= to hit /run manually over HTTP
